@@ -1,84 +1,98 @@
-/* style.css */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f8f8; /* Warna latar belakang yang lembut */
+    color: #333; /* Warna teks */
     margin: 0;
     padding: 20px;
 }
 
 h1 {
+    color: #d50000; /* Warna merah yang khas */
     text-align: center;
-    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-button {
+    background-color: #d50000; /* Warna merah */
+    color: white; /* Warna teks putih */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #b00000; /* Warna merah lebih gelap saat hover */
 }
 
 table {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-table, th, td {
-    border: 1px solid #ddd;
+    margin-top: 20px;
 }
 
 th, td {
     padding: 12px;
     text-align: left;
+    border: 1px solid #ddd; /* Garis border */
 }
 
 th {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #d50000; /* Warna merah untuk header tabel */
+    color: white; /* Warna teks putih di header */
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #ddd;
+    background-color: #f2f2f2; /* Warna latar belakang untuk baris genap */
 }
 
 button {
-    background-color: #f44336;
-    color: white;
+    background-color: #d50000; /* Warna merah untuk tombol */
+    color: white; /* Warna teks putih untuk tombol */
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #c62828;
+    background-color: #b00000; /* Warna merah lebih gelap saat hover */
 }
 
-a {
-    text-decoration: none;
-    background-color: #008CBA;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+.action-buttons {
+    display: flex; /* Mengatur layout dalam baris */
+    justify-content: space-between; /* Menyebar tombol dengan jarak yang sama */
 }
 
-a:hover {
-    background-color: #005f73;
-    color: white;
+.action-buttons form {
+    margin: 0 5px; /* Memberikan jarak antar tombol */
 }
 
-.add-button {
-    background-color: #4CAF50; /* Warna hijau */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+.update-button {
+    background-color: #4CAF50; /* Hijau untuk tombol Update */
+    color: white; /* Teks putih */
+    border: none; /* Menghapus border default */
+    padding: 10px 15px; /* Memberikan padding */
+    cursor: pointer; /* Mengubah kursor saat hover */
+    border-radius: 5px; /* Membuat sudut tombol membulat */
+    transition: background-color 0.3s; /* Efek transisi */
 }
 
-.add-button:hover {
-    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+.update-button:hover {
+    background-color: #45a049; /* Warna lebih gelap saat hover */
+}
+
+.delete-button {
+    background-color: #f44336; /* Merah untuk tombol Delete */
+    color: white; /* Teks putih */
+    border: none; /* Menghapus border default */
+    padding: 10px 15px; /* Memberikan padding */
+    cursor: pointer; /* Mengubah kursor saat hover */
+    border-radius: 5px; /* Membuat sudut tombol membulat */
+    transition: background-color 0.3s; /* Efek transisi */
+}
+
+.delete-button:hover {
+    background-color: #e53935; /* Warna lebih gelap saat hover */
 }
