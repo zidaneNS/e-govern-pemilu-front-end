@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nama = $_POST['nama'];
     }
 } else {
-    header('Location: index.php');
+    header('Location: profil_pemerintah.php');
 }
 
 ?>
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1 style="text-align: center;">Update Profile</h1>
     <div class="form-container">
-        <form method="POST" action="update_handler.php">
+        <form method="POST" action="profil_pemerintah_update_handler.php">
             <div class="form-group">
                 <label for="nip">NIP:</label>
                 <input type="text" id="nip" name="nip" value="<?= $nip ?>" required>

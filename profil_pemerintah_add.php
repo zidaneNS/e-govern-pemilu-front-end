@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($httpCode === 201) {
         // Jika data berhasil ditambahkan, alihkan ke index.php
-        header('Location: index.php');
+        header('Location: profil_pemerintah.php');
         exit();
     } else {
         echo "Error: " . $response; // Menampilkan pesan error jika ada
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1 style="text-align: center;">Add Profile</h1>
     <div class="form-container">
-        <form method="POST" action="add.php">
+        <form method="POST" action="">
             <div class="form-group">
                 <label for="nip">NIP:</label>
                 <input type="text" id="nip" name="nip" required>

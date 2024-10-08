@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_close($ch);
 
     if ($httpCode === 200) {
-        header('Location: index.php');
+        header('Location: profil_pemerintah.php');
         exit();
     } else {
         echo "Error: " . $response;

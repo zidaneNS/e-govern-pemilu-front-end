@@ -19,7 +19,7 @@ $data = json_decode($jsonData, true);
 <body>
     <h1>Profil Pemerintah</h1>
     <div style="text-align: center; margin-bottom: 20px;">
-        <a href="add.php" class="add-button">Add Profile</a>
+        <a href="profil_pemerintah_add.php" class="add-button">Add Profile</a>
     </div>
     <table>
         <thead>
@@ -36,14 +36,14 @@ $data = json_decode($jsonData, true);
                 <td><?= htmlspecialchars($profil['nama']); ?></td>
                 <td>
                     <div class="action-buttons">
-                        <form action="update.php" method="post" style="display: inline;">
+                        <form action="profil_pemerintah_update.php" method="post" style="display: inline;">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <input type="hidden" name="nip" value="<?= htmlspecialchars($profil['nip']); ?>">
                             <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
                             <button type="submit" name="submit" class="update-button">Update</button>
                         </form>
 
-                        <form action="delete.php" method="POST" style="display: inline;">
+                        <form action="profil_pemerintah_delete.php" method="POST" style="display: inline;">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <button type="submit" class="delete-button"
                                 onclick="return confirm('Apakah Anda yakin ingin menghapus?');">Delete</button>
