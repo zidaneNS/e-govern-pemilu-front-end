@@ -1,0 +1,45 @@
+/* style.css */
+
+/* Tambahkan gaya ini di bawah kode yang sudah ada */
+.form-container {
+    width: 400px; /* Lebar formulir */
+    margin: 20px auto; /* Center di tengah halaman */
+    padding: 20px; /* Padding di dalam formulir */
+    border: 1px solid #ddd; /* Garis border */
+    border-radius: 8px; /* Sudut border membulat */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    background-color: #f9f9f9; /* Warna latar belakang formulir */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Jarak antar elemen */
+}
+
+label {
+    display: block; /* Membuat label sebagai blok */
+    margin-bottom: 5px; /* Jarak antara label dan input */
+    font-weight: bold; /* Menebalkan teks label */
+}
+
+input[type="text"] {
+    width: 100%; /* Lebar input sesuai dengan lebar formulir */
+    padding: 10px; /* Padding dalam input */
+    border: 1px solid #ccc; /* Garis border input */
+    border-radius: 4px; /* Sudut border input membulat */
+    font-size: 16px; /* Ukuran font input */
+}
+
+.submit-button {
+    background-color: #4CAF50; /* Warna hijau */
+    color: white; /* Warna teks */
+    padding: 10px 20px; /* Padding untuk tombol */
+    border: none; /* Tanpa border */
+    border-radius: 4px; /* Sudut border tombol membulat */
+    cursor: pointer; /* Pointer saat hover */
+    font-size: 16px; /* Ukuran font tombol */
+    transition: background-color 0.3s; /* Efek transisi untuk hover */
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
+}
