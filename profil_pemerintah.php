@@ -1,8 +1,25 @@
 <?php 
 
 $apiUrl = 'http://localhost:5000/kpu';
-$jsonData = file_get_contents($apiUrl);
-$data = json_decode($jsonData, true);
+$apiKey = 'api1234';
+
+$ch = curl_init($apiUrl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'API_KEY: ' . $apiKey
+]);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+if ($httpCode == 200) {
+    $data = json_decode($response, true);
+} else {
+    echo "Error" . $response;
+}
 
 ?>
 
