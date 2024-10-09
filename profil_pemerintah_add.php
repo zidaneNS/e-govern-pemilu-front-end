@@ -2,6 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nip = $_POST['nip'];
     $nama = $_POST['nama'];
+    $passwordRaw = $_POST['password'];
+
+    $password = password_hash($passwordRaw, PASSWORD_DEFAULT);
 
     $apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah';
     $apiKey = 'api1234';
@@ -13,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'Content-Type: application/json',
         'API_KEY:' . $apiKey
     ]);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama]));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama, 'password' => $password]));
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -50,6 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" required>
             </div>
             <button type="submit" class="submit-button">Submit</button>
         </form>

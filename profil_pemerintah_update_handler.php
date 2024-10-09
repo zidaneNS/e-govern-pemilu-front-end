@@ -5,6 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST['id'];
         $nip = $_POST['nip'];
         $nama = $_POST['nama'];
+        $passwordRaw = $_POST['password'];
+
+        $password = password_hash($passwordRaw, PASSWORD_DEFAULT);
 
         $apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah/' . $id;
         $apiKey = 'api1234';
@@ -16,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'Content-Type: application/json',
             'API_KEY:' . $apiKey
         ]);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama]));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama, 'password' => $password]));
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);

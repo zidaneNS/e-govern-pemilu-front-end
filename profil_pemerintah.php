@@ -57,6 +57,7 @@ if ($httpCode == 200) {
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <input type="hidden" name="nip" value="<?= htmlspecialchars($profil['nip']); ?>">
                             <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
+                            <input type="hidden" name="passowrd" value="<?= htmlspecialchars($profil['password']); ?>">
                             <button type="submit" name="submit" class="update-button">Update</button>
                         </form>
 

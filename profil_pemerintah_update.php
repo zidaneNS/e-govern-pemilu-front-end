@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST['id'];
         $nip = $_POST['nip'];
         $nama = $_POST['nama'];
+        $password = $_POST['password'];
     }
 } else {
     header('Location: profil_pemerintah.php');
@@ -33,6 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="nama">Nama:</label>
                 <input type="text" id="nama" name="nama" value="<?= $nama ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" value="<?= $password ?>" required>
             </div>
             <input type="hidden" name="id" value="<?= $id; ?>">
             <button type="submit" name="submit" class="submit-button">Submit</button>
