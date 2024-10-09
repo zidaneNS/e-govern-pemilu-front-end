@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = (int)$_POST['id'];
 
-    $apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah/' . $id;
+    $apiUrl = 'http://localhost:5000/api/kpu/profil_panitia/' . $id;
     $apiKey = 'api1234';
 
     $ch = curl_init($apiUrl);
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_close($ch);
 
     if ($httpCode === 200) {
-        header('Location: profil_pemerintah.php');
+        header('Location: profil_panitia.php');
         exit();
     } else {
         echo "Error: " . $response;
