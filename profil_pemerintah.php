@@ -1,6 +1,6 @@
 <?php 
 
-$apiUrl = 'http://localhost:5000/kpu';
+$apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah';
 $apiKey = 'api1234';
 
 $ch = curl_init($apiUrl);

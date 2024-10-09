@@ -3,13 +3,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nip = $_POST['nip'];
     $nama = $_POST['nama'];
 
-    $apiUrl = 'http://localhost:5000/kpu';
+    $apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah';
+    $apiKey = 'api1234';
 
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json',
+        'API_KEY:' . $apiKey
     ]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama]));
 
