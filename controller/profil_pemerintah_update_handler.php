@@ -1,6 +1,6 @@
 <?php 
 
-require_once('includes/function_api.php');
+require_once('../includes/function_api.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama, 'password' => $password]));
 
             // Redirect setelah update
-            ch_redirect($ch, 'profil_pemerintah.php', 200);
+            ch_redirect($ch, '../views/profil_pemerintah.php', 200);
             exit();
         } catch (ErrorException $e) {
             echo 'error: ' . $e->getMessage();
         }
     }
 } else {
-    header('Location: profil_pemerintah.php');
+    header('Location: ../views/profil_pemerintah.php');
     exit();
 }

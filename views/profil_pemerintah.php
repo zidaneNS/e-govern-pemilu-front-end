@@ -1,5 +1,5 @@
 <?php 
-require_once('includes/function_api.php');
+require_once('../includes/function_api.php');
 
 $ch = ch('profil_pemerintah');
 
@@ -15,17 +15,17 @@ $i = 0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Input Data Pemerintah</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="profil_pemerintah.css">
+    <link rel="stylesheet" href="../css/profil_pemerintah.css">
 </head>
 
 <body>
     <div class="container">
-        <?php include('layouts/navbar_kpu.php'); ?>
+        <?php include('../layouts/navbar_kpu.php'); ?>
         <!-- Main Content -->
         <div class="main-content">
             <h1>Input Data Pemerintah</h1>
             <p>Tambahkan Data untuk Pemerintah</p>
-            <form action="profil_pemerintah_add.php" method="POST" class="mb-4">
+            <form action="../controller/profil_pemerintah_add.php" method="POST" class="mb-4">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>
                     <input type="text" id="nama" name="nama" class="form-control" placeholder="Masukkan Nama" required>
@@ -72,7 +72,8 @@ $i = 0;
                                         class="update-button">Update</button>
                                 </form>
 
-                                <form action="profil_pemerintah_delete.php" method="POST" style="display: inline;">
+                                <form action="../controller/profil_pemerintah_delete.php" method="POST"
+                                    style="display: inline;">
                                     <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                                     <button class="btn btn-danger btn-sm" type="submit" class="delete-button"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus?');">Delete</button>

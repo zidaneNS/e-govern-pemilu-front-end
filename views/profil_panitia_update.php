@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1 style="text-align: center;">Update Profile</h1>
     <div class="form-container">
-        <form method="POST" action="profil_panitia_update_handler.php">
+        <form method="POST" action="../controller/profil_panitia_update_handler.php">
             <div class="form-group">
                 <label for="nik">nik:</label>
                 <input type="text" id="nik" name="nik" value="<?= $nik ?>" required>
