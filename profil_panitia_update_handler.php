@@ -1,6 +1,6 @@
 <?php 
 
-require_once('function_api.php');
+require_once('includes/function_api.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['submit'])) {

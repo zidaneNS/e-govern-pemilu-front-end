@@ -1,5 +1,5 @@
 <?php 
-require_once('function_api.php');
+require_once('includes/function_api.php');
 
 $ch = ch('profil_pemerintah');
 
