@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+require_once('function_api.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nip = $_POST['nik'];
     $nama = $_POST['nama'];
@@ -6,29 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $password = password_hash($passwordRaw, PASSWORD_DEFAULT);
 
-    $apiUrl = 'http://localhost:5000/api/kpu/profil_panitia';
-    $apiKey = 'api1234';
-
-    $ch = curl_init($apiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $ch = ch('profil_panitia');
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'API_KEY:' . $apiKey
-    ]);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nik' => $nip, 'nama' => $nama, 'password' => $password]));
 
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    curl_close($ch);
-
-    if ($httpCode === 201) {
-        // Jika data berhasil ditambahkan, alihkan ke index.php
-        header('Location: profil_panitia.php');
-        exit();
-    } else {
-        echo "Error: " . $response; // Menampilkan pesan error jika ada
-    }
+    ch_redirect($ch, 'profil_panitia.php', 201);
 }
 ?>
 

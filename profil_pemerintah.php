@@ -1,25 +1,9 @@
 <?php 
+require_once('function_api.php');
 
-$apiUrl = 'http://localhost:5000/api/kpu/profil_pemerintah';
-$apiKey = 'api1234';
+$ch = ch('profil_pemerintah');
 
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'API_KEY: ' . $apiKey
-]);
-
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-curl_close($ch);
-
-if ($httpCode == 200) {
-    $data = json_decode($response, true);
-} else {
-    echo "Error" . $response;
-}
+$data = data_encode($ch);
 
 ?>
 
@@ -35,8 +19,24 @@ if ($httpCode == 200) {
 
 <body>
     <h1>Profil Pemerintah</h1>
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="profil_pemerintah_add.php" class="add-button">Add Profile</a>
+
+    <h1 style="text-align: center;">Add Profile</h1>
+    <div class="form-container">
+        <form method="POST" action="profil_pemerintah_add.php">
+            <div class="form-group">
+                <label for="nip">NIP:</label>
+                <input type="text" id="nip" name="nip" required>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
     </div>
     <table>
         <thead>
@@ -57,7 +57,7 @@ if ($httpCode == 200) {
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <input type="hidden" name="nip" value="<?= htmlspecialchars($profil['nip']); ?>">
                             <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
-                            <input type="hidden" name="passowrd" value="<?= htmlspecialchars($profil['password']); ?>">
+                            <input type="hidden" name="password" value="<?= htmlspecialchars($profil['password']); ?>">
                             <button type="submit" name="submit" class="update-button">Update</button>
                         </form>
 
