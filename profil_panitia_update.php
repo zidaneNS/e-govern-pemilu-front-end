@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST['id'];
         $nik = $_POST['nik'];
         $nama = $_POST['nama'];
-        $password = $_POST['password'];
     }
 } else {
     header('Location: profil_panitia.php');
@@ -37,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="password">password:</label>
-                <input type="password" id="password" name="password" value="<?= $password ?>" required>
+                <input type="password" id="password" name="password">
             </div>
             <input type="hidden" name="id" value="<?= $id; ?>">
             <button type="submit" name="submit" class="submit-button">Submit</button>

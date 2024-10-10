@@ -57,7 +57,6 @@ $data = data_encode($ch);
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <input type="hidden" name="nip" value="<?= htmlspecialchars($profil['nip']); ?>">
                             <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
-                            <input type="hidden" name="password" value="<?= htmlspecialchars($profil['password']); ?>">
                             <button type="submit" name="submit" class="update-button">Update</button>
                         </form>
 

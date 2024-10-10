@@ -7,16 +7,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST['id'];
         $nik = $_POST['nik'];
         $nama = $_POST['nama'];
-        $passwordRaw = $_POST['password'];
+        $password_raw = $_POST['password'];
 
-        $password = password_hash($passwordRaw, PASSWORD_DEFAULT);
+        try {
+            $password = generate_password($password_raw, 'profil_panitia/' . $id);
+            $ch = ch('profil_panitia/' . $id);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nik' => $nik, 'nama' => $nama, 'password' => $password]));
 
-        $ch = ch('profil_panitia/' . $id);
-        
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nik' => $nik, 'nama' => $nama, 'password' => $password]));
-
-        ch_redirect($ch, 'profil_panitia.php', 200);
+            // Redirect setelah update
+            ch_redirect($ch, 'profil_panitia.php', 200);
+            exit();
+        } catch (ErrorException $e) {
+            echo 'error: ' . $e->getMessage();
+        }
     }
 } else {
     header('Location: profil_panitia.php');

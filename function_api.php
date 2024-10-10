@@ -41,3 +41,16 @@ function ch_redirect($ch, $path, $code) {
         Echo "Error,".$response;
     }
 }
+
+function generate_password($password_raw, $endpoint) {
+    $pwdCurl = ch($endpoint);
+    $oldData = data_encode($pwdCurl);
+
+    if (isset($oldData['data'][0]['password'])) {
+        $actualPwd = $oldData['data'][0]['password'];
+        $password = password_verify($password_raw, $actualPwd) || $password_raw == '' ? $actualPwd : password_hash($password_raw, PASSWORD_DEFAULT);
+        return $password;
+    } else {
+        throw new ErrorException('Data dengan tidak ditemukan') ;
+    }
+}

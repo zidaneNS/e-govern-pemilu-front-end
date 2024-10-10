@@ -19,6 +19,23 @@ $data = data_encode($ch);
 </head>
 
 <body>
+    <div class="form-container">
+        <form method="POST" action="profil_panitia_add.php">
+            <div class="form-group">
+                <label for="nik">NIK:</label>
+                <input type="text" id="nik" name="nik" required>
+            </div>
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
     <h1>Profil Panitia</h1>
     <div style="text-align: center; margin-bottom: 20px;">
         <a href="profil_panitia_add.php" class="add-button">Add Profile</a>
@@ -42,7 +59,6 @@ $data = data_encode($ch);
                             <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                             <input type="hidden" name="nik" value="<?= htmlspecialchars($profil['nik']); ?>">
                             <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
-                            <input type="hidden" name="password" value="<?= htmlspecialchars($profil['password']); ?>">
                             <button type="submit" name="submit" class="update-button">Update</button>
                         </form>
 
