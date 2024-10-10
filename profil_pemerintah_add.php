@@ -5,9 +5,9 @@ require_once('includes/function_api.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nip = $_POST['nip'];
     $nama = $_POST['nama'];
-    $passwordRaw = $_POST['password'];
+    $password_raw = $_POST['password'];
 
-    $password = password_hash($passwordRaw, PASSWORD_DEFAULT);
+    $password = password_hash($password_raw, PASSWORD_DEFAULT);
 
     $ch = ch('profil_pemerintah');
     
