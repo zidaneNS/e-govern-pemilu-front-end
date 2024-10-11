@@ -89,7 +89,7 @@
         <!-- Login Form -->
         <div id="login-form">
             <h2>Login</h2>
-            <form method="POST" action="login.inc.php">
+            <form method="POST" action="../includes/login.inc.php">
                 <label for="nip-login">NIP:</label>
                 <input type="text" name="nip" id="nip-login" required>
                 <label for="password-login">Password:</label>
@@ -102,7 +102,7 @@
         <!-- Signup Form -->
         <div id="signup-form" style="display: none;">
             <h2>Signup</h2>
-            <form method="POST" action="signup.inc.php">
+            <form method="POST" action="../includes/signup.inc.php">
                 <label for="nip-signup">NIP:</label>
                 <input type="text" name="nip" id="nip-signup" required>
                 <label for="nama-signup">Nama:</label>

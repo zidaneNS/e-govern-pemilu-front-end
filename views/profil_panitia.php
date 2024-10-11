@@ -51,8 +51,8 @@ $i = 0;
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
                         <th>NIK</th>
+                        <th>Nama</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
