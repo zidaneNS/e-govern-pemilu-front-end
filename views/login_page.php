@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Pemerintah | E-Suara</title>
+    <link rel="shortcut icon" href="../asset/e-suara merah.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/login_page.css">
 </head>
 
