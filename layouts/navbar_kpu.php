@@ -4,10 +4,17 @@
         <div class="profile-icon">
             <img src="../asset/icon _user_.png" alt="Profile Icon" class="img-fluid rounded-circle" width="80">
         </div>
-        <p>Nama</p>
-        <p>NIP</p>
+        <p><?= $_SESSION['nama']; ?></p>
+        <p><?= $_SESSION['nip']; ?></p>
     </div>
     <ul class="menu">
+        <?php if ($_SESSION['nip'] === '12345') {?>
+        <li>
+            <a href="http://localhost:5000/profil_pemerintah">
+                <img src="../asset/Vector.png" alt="Icon" class="menu-icon me-2"> Pemerintah
+            </a>
+        </li>
+        <?php } ?>
         <li>
             <a href="http://localhost:5000/partai">
                 <img src="../asset/Vector.png" alt="Icon" class="menu-icon me-2"> Partai
@@ -26,7 +33,7 @@
     </ul>
 
     <div class="logout">
-        <a href="#" class="d-flex align-items-center">
+        <a href="http://localhost:5000/logout" class="d-flex align-items-center">
             <img src="../asset/Subtract.svg" alt="Logout Icon" class="logout-icon me-2">Log Out
         </a>
     </div>

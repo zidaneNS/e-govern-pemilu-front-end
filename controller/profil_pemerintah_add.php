@@ -15,4 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['nip' => $nip, 'nama' => $nama, 'password' => $password]));
 
     ch_redirect($ch, '../views/profil_pemerintah.php', 201);
+} else {
+    header('Location: ../views/profil_pemerintah.php');
+    exit;
 }

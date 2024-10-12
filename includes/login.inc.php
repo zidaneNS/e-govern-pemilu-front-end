@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!(password_verify($password, $data['password']) && $nip === $data['nip'])) {
         header('Location: ../views/login_page.php');
     } else {
-        include 'confif_session.php';
+        include 'config_session.inc.php';
         $_SESSION['nip'] = $data['nip'];
         $_SESSION['nama'] = $data['nama'];
 

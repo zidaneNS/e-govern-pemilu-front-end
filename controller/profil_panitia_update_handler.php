@@ -24,4 +24,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     header('Location: ../views/profil_panitia.php');
+    exit;
 }

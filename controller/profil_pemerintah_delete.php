@@ -10,4 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['id' => $id]));
 
     ch_redirect($ch, '../views/profil_pemerintah.php', 200);
+} else {
+    header('../views/profil_pemerintah.php');
+    exit;
 }

@@ -5,6 +5,8 @@ $ch = ch('profil_pemerintah');
 
 $data = data_encode($ch);
 $i = 0;
+
+include '../includes/login_verify.php';
 ?>
 
 <!DOCTYPE html>
