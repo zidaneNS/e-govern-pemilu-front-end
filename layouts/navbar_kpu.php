@@ -21,7 +21,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="http://localhost:5000/caleg">
                 <img src="../asset/Vector.png" alt="Icon" class="menu-icon me-2"> Caleg
             </a>
         </li>
