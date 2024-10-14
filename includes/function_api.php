@@ -48,7 +48,9 @@ function ch_redirect($ch, $path, $code) {
         // Jika berhasil update, redirect index.php
         header('Location: ' . $path);
     } else {
-        Echo "Error,".$response;
+        $error = json_decode($response, true);
+        $error_msg = urlencode($error['message']);
+        header('Location:' . $path . "?error=$error_msg");
     }
 }
 

@@ -7,6 +7,11 @@ $data = data_encode($ch);
 $i = 0;
 
 include '../includes/login_verify.php';
+
+if (isset($_GET['error'])) {
+    $error = htmlspecialchars($_GET['error']);
+    echo "<script>alert('$error');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +49,15 @@ include '../includes/login_verify.php';
                     <input type="password" id="password" name="password" class="form-control"
                         placeholder="Masukkan Password" required>
                 </div>
+
+                <?php 
+                
+                if (isset($_GET['blank'])) {
+                    $blank = htmlspecialchars($_GET['blank']);
+                    echo "<p>$blank</p>";
+                }
+                
+                ?>
 
                 <button type="submit" class="btn btn-danger">Tambahkan</button>
             </form>

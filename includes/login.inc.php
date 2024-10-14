@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = data_encode($ch)['data'][0];
 
     if (!(password_verify($password, $data['password']) && $nip === $data['nip'])) {
-        header('Location: ../views/login_page.php');
+        $blocked = urlencode('password or username invalid');
+        header("Location: ../views/login_page.php?error=$blocked");
     } else {
         include 'config_session.inc.php';
         $_SESSION['nip'] = $data['nip'];
@@ -18,4 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header('Location: ../views/profil_panitia.php');
     }
+} else {
+    header('Location: ../views/login_page.php');
 }

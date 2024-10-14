@@ -39,6 +39,15 @@ include '../includes/login_verify.php';
                     <input type="file" id="logo" name="logo" class="form-control" accept="image/*" required>
                 </div>
 
+                <?php 
+                
+                if (isset($_GET['blank'])) {
+                    $blank = htmlspecialchars($_GET['blank']);
+                    echo "<p>$blank</p>";
+                }
+                
+                ?>
+
                 <button type="submit" class="btn btn-danger">Tambahkan</button>
             </form>
 
@@ -63,10 +72,12 @@ include '../includes/login_verify.php';
                             <div class="action-buttons">
                                 <form action="partai_update.php" method="post" style="display: inline;">
                                     <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
-                                    <input type="hidden" name="nik" value="<?= htmlspecialchars($profil['nama']); ?>">
-                                    <input type="hidden" name="nama"
+                                    <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
+                                    <input type="hidden" name="logoUrl"
                                         value="<?= htmlspecialchars($profil['logoUrl']); ?>">
-                                    <button class="btn btn-warning btn-sm" type="submit" name="submit"
+                                    <input type="hidden" name="filePath"
+                                        value="<?= htmlspecialchars($profil['filePath']); ?>">
+                                    <button class="btn btn-warning btn" type="submit" name="submit"
                                         class="update-button">Update</button>
                                 </form>
 

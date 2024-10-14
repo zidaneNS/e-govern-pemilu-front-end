@@ -18,8 +18,13 @@
                 <h1>Login</h1>
                 <span>Gunakan NIP dan Password</span>
                 <input type="text" name="nip" placeholder="NIP" required>
+                <?php 
+                    if (isset($_GET['error'])) {
+                        $error = htmlspecialchars($_GET['error']);
+                        echo "<p>$error</p>";
+                    }
+                ?>
                 <input type="password" name="password" placeholder="Password" required>
-                <a href="#">Lupa Password</a>
                 <button type="submit">Masuk</button>
             </form>
         </div>

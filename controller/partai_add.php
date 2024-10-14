@@ -1,12 +1,13 @@
 <?php 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['nama']) && isset($_FILES['logo'])) {
+    if ($_POST['nama'] !== '' && isset($_FILES['logo'])) {
         $nama = $_POST['nama'];
         $logo = $_FILES['logo'];
 
         $allowed_types = ['image/jpg', 'image/png', 'image/jpeg'];
         if (!in_array($logo['type'], $allowed_types)) {
-            die('wrong');
+            $invalid = urlencode('jpg, png, jpeg file only!');
+            header("Location: ../views/partai.php?invalid=$invalid");
         }
 
         $tmp_file_path = $logo['tmp_name'];
@@ -22,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         ch_redirect($ch, '../views/partai.php', 201);
     } else {
-        echo "not set";
+        $error = urlencode('complete the form!');
+        header("Location: ../views/partai.php?blank=$error");
     }
 } else {
     header('Location: ../views/partai.php');
