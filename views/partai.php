@@ -38,16 +38,16 @@ include '../includes/login_verify.php';
                     <label for="logo" class="form-label">Logo</label>
                     <input type="file" id="logo" name="logo" class="form-control" accept="image/*" required>
                 </div>
-
                 <?php 
-                
-                if (isset($_GET['blank'])) {
-                    $blank = htmlspecialchars($_GET['blank']);
-                    echo "<p>$blank</p>";
-                }
-                
+                    if (isset($_GET['blank'])) {
+                        $blank = htmlspecialchars($_GET['blank']);
+                        echo "<p>$blank</p>";
+                    }
+                    if (isset($_GET['invalid'])) {
+                        $invalid = htmlspecialchars($_GET['invalid']);
+                        echo "<p>$invalid</p>";
+                    }
                 ?>
-
                 <button type="submit" class="btn btn-danger">Tambahkan</button>
             </form>
 

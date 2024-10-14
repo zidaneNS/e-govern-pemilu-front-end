@@ -6,11 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
         $id = $_POST['id'];
         $nama = $_POST['nama'];
-        $logo_url = $_POST['logoUrl'];
-        $file_path = $_POST['filePath'];
     }
 } else {
-    header('Location: profil_pemerintah.php');
+    header('Location: partai.php');
 }
 
 ?>

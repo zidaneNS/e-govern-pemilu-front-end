@@ -40,7 +40,7 @@ include '../includes/login_verify.php';
 
                 <div class="mb-3">
                     <label for="category" class="form-label">Kategori</label>
-                    <select name="category" id="category">
+                    <select name="category" id="category" required>
                         <option value="">---Select Category---</option>
                         <option value="presiden wapres">Pres Wapres</option>
                         <option value="dpr">DPR</option>
@@ -48,8 +48,8 @@ include '../includes/login_verify.php';
                 </div>
 
                 <div class="mb-3">
-                    <label for="partai" class="form-label">Partai</label>
-                    <select name="partai" id="partai" required>
+                    <label for="id_partai" class="form-label">Partai</label>
+                    <select name="id_partai" id="id_partai" required>
                         <option value="">---Select Partai---</option>
                         <?php  
                             if ($data_partai['data'] > 0) {
@@ -76,12 +76,16 @@ include '../includes/login_verify.php';
                         $blank = htmlspecialchars($_GET['blank']);
                         echo "<p>$blank</p>";
                     }
+                    if (isset($_GET['invalid'])) {
+                        $invalid = htmlspecialchars($_GET['invalid']);
+                        echo "<p>$invalid</p>";
+                    }
                 ?>
 
                 <button type="submit" class="btn btn-danger">Tambahkan</button>
             </form>
 
-            <!-- Tabel Data Pemerintah -->
+            <!-- Tabel Data Caleg -->
             <h2>Data Partai</h2>
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">
@@ -89,8 +93,9 @@ include '../includes/login_verify.php';
                         <th>No</th>
                         <th>Nama</th>
                         <th>Profil</th>
+                        <th>Kategori</th>
                         <th>Nama Partai</th>
-                        <th>NIP Pemerintah</th>
+                        <th>NIP Penanggungjawab</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -100,6 +105,7 @@ include '../includes/login_verify.php';
                         <td><?= ++$i; ?></td>
                         <td><?=$profil['nama'];?></td>
                         <td><a href="<?= $profil['imgUrl']; ?>">Profil <?= $profil['nama']; ?></a></td>
+                        <td><?= htmlspecialchars($profil['category']); ?></td>
                         <td>
                             <?php 
                                 $array_id_partai = array_column($data_partai['data'], 'id');
@@ -109,19 +115,27 @@ include '../includes/login_verify.php';
                             ?>
                         </td>
                         <td>
+                            <?php  
+                                $array_id_pemerintah = array_column($data_pemerintah['data'], 'id');
+                                $index_selected_pemerintah =  array_search($profil['id_pegawai'], $array_id_pemerintah);
+                                $nip_pemerintah = $data_pemerintah['data'][$index_selected_pemerintah]['nip'];
+                                echo "$nip_pemerintah";
+                            ?>
+                        </td>
+                        <td>
                             <div class="action-buttons">
-                                <form action="partai_update.php" method="post" style="display: inline;">
-                                    <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
+                                <form action="caleg_update.php" method="post" style="display: inline;">
                                     <input type="hidden" name="nama" value="<?= htmlspecialchars($profil['nama']); ?>">
-                                    <input type="hidden" name="logoUrl"
-                                        value="<?= htmlspecialchars($profil['logoUrl']); ?>">
-                                    <input type="hidden" name="filePath"
-                                        value="<?= htmlspecialchars($profil['filePath']); ?>">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
+                                    <input type="hidden" name="category"
+                                        value="<?= htmlspecialchars($profil['category']); ?>">
+                                    <input type="hidden" name="id_partai"
+                                        value="<?= htmlspecialchars($profil['id_partai']); ?>">
                                     <button class="btn btn-warning btn" type="submit" name="submit"
                                         class="update-button">Update</button>
                                 </form>
 
-                                <form action="../controller/partai_delete.php" method="POST" style="display: inline;">
+                                <form action="../controller/caleg_delete.php" method="POST" style="display: inline;">
                                     <input type="hidden" name="id" value="<?= htmlspecialchars($profil['id']); ?>">
                                     <button class="btn btn-danger btn-sm" type="submit" class="delete-button"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus?');">Delete</button>

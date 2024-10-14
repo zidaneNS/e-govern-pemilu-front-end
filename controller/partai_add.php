@@ -1,7 +1,7 @@
 <?php 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['nama'] !== '' && isset($_FILES['logo'])) {
-        $nama = $_POST['nama'];
+        $nama = htmlspecialchars($_POST['nama']);
         $logo = $_FILES['logo'];
 
         $allowed_types = ['image/jpg', 'image/png', 'image/jpeg'];

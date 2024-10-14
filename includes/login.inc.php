@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include 'config_session.inc.php';
         $_SESSION['nip'] = $data['nip'];
         $_SESSION['nama'] = $data['nama'];
+        $_SESSION['id'] = $data['id'];
 
         header('Location: ../views/profil_panitia.php');
     }
