@@ -93,6 +93,7 @@ include '../includes/login_verify.php';
                         <th>No</th>
                         <th>Nama</th>
                         <th>Profil</th>
+                        <th>No Urut</th>
                         <th>Kategori</th>
                         <th>Nama Partai</th>
                         <th>NIP Penanggungjawab</th>
@@ -105,6 +106,7 @@ include '../includes/login_verify.php';
                         <td><?= ++$i; ?></td>
                         <td><?=$profil['nama'];?></td>
                         <td><a href="<?= $profil['imgUrl']; ?>">Profil <?= $profil['nama']; ?></a></td>
+                        <td><?= $profil['no_urut']; ?></td>
                         <td><?= htmlspecialchars($profil['category']); ?></td>
                         <td>
                             <?php 
